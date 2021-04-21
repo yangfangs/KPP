@@ -12,15 +12,15 @@ Using this feature or concatenating other features with the ML framework for the
 * Index: build contig index table by kmer set.
  
 ### options
-  
-  | option |  Description                                                                                                                            |
-  |:------- |:---------------------------------------------------------------------------------------------------------------------------------------|
-  |  -i     |  Species AA file path.                                                                                                         |
-  |  -o     |  Setting store path.                                                                                                               |
-  |  -k     |  setting kmer parameter value k.                                                                                                               |
-  |  -s     |  Max split file number.                                                                                 |
-  |  -m    |   Max add species number.                                                      |
-  |  -d     |  Choose profile model (AA,CH,PO,CHP,HY)                                                              |
+
+  | option  |  Description                                                                                             |
+  |:------- |:---------------------------------------------------------------------------------------------------------|
+  |  -i     |  The AA file path of species proteome.                                                                   |
+  |  -o     |  Setting output file path.                                                                               |
+  |  -k     |  Setting the parameter of kmer value (kmer length).                                                      |
+  |  -s     |  Max split file number, default is 1 (parameter for large proteome).                                     |
+  |  -m     |  Max add species number, default is 1 (equal input proteome).                                            |
+  |  -d     |  Choose profile model, default is AA(AA, CH, PO, CHP, HY).                                               |
 
 
 ### Usage: 
@@ -38,13 +38,13 @@ $ java -Xmx10190m -jar KPP.jar Index -i protein -k 19 -s 1 -m 4 -o k19_ch_index.
    
 ### options
     
-| option |  Description                                                                                                                            |
-|:------- |:---------------------------------------------------------------------------------------------------------------------------------------|
-|  -i     |  Species AA file path.                                                                                                         |
-|  -o     |  Setting store path.                                                                                                               |
-|  -k     |  setting kmer parameter value k.                                                                                                               |
+| option |  Description                                                                                                |
+|:------- |:-----------------------------------------------------------------------------------------------------------|
+|  -i     |  The species proteome for constructing phylogenetic profile.                                               |
+|  -o     |  Setting output file path.                                                                                 |
+|  -k     |  Setting the parameter of kmer value (kmer length).                                                        |
 |  -c     |  The path of contig index.                                                                                 |
-|  -d     |  Choose profile model (AA,CH,PO,CHP,HY)                                                              |
+|  -d     |  Choose profile model, default is AA(AA, CH, PO, CHP, HY).                                                 |
 
 ### Usage:
 
@@ -59,13 +59,13 @@ $ java -Xmx10190m -jar KPP.jar Profile -i abb_species_503 -c Index -o Profile -k
    
 ### options
     
-| option |  Description                                                                                                                            |
-|:------- |:---------------------------------------------------------------------------------------------------------------------------------------|
-|  -i     |  Species AA file path.                                                                                                         |
-|  -o     |  Setting store path.                                                                                                               |
-|  -k     |  setting kmer parameter value k.                                                                                                               |
-|  -p     |  The profile path.                                                                                 |
-|  -d     |  Choose profile model (AA,CH,PO,CHP,HY)                                                              |
+| option |  Description                                                                                                |
+|:------- |:-----------------------------------------------------------------------------------------------------------|
+|  -i     |  The species proteome for extract feature.                                                                 |
+|  -o     |  Setting output file path.                                                                                 |
+|  -k     |  Setting the parameter of kmer value (kmer length).                                                        |
+|  -p     |  The phylogenetic profile path.                                                                            |
+|  -d     |  Choose profile model, default is AA(AA, CH, PO, CHP, HY).                                                 |
 
 
 ### Usage:
@@ -79,8 +79,7 @@ $ java -Xmx10190m -jar KPP.jar Feature -i ath_psy_hpa_gor_sequence.fasta -k 19 -
 * Here we provide an example about using KPP algorithm create contig index, construct phylogenetic profile and extract feature by command line.
 
 ## Download test data
-* Test data: <a href="ftp://74.120.168.50/Test_data.tar.gz">Test_data.tar.gz</a>
-[Test_data.tar.gz](ftp://74.120.168.50/Test_data.tar.gz)
+* Test data: [Test_data.tar.gz](https://bit.ly/3ejeRBJ)
 ## Uncompress test data
 
 ```angular2html
