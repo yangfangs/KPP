@@ -46,7 +46,7 @@ public class testcompress {
         long endTime = System.currentTimeMillis();
 
 //        foo.printContigs();
-        System.out.println("Time:" + (endTime - startTime) / 1000);
+        System.out.println("Used time:" + (endTime - startTime) / 1000);
     }
 
 }

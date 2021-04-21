@@ -33,10 +33,10 @@ public class CreateSpeciesTable {
         this.speContigIndexPath = speContigIndexPath;
         this.model = model;
         this.speNum = speNum;
-        File file = new File(speContigIndexPath);
-        if (!file.isDirectory()) {
-            file.mkdirs();
-        }
+//        File file = new File(speContigIndexPath);
+//        if (!file.isDirectory()) {
+//            file.mkdirs();
+//        }
 //        this.foo = new SeqContig();
     }
 
@@ -67,7 +67,7 @@ public class CreateSpeciesTable {
             readContig(files[i].getAbsolutePath());
 
             createSpe(k);
-            String w_path = speContigIndexPath + files[i].getName();
+            String w_path = speContigIndexPath + "_" + files[i].getName();
             writeSpeTable(w_path);
 
         }
@@ -92,7 +92,9 @@ public class CreateSpeciesTable {
 
         for (int i = 0; i < files.length; i++) {
             SeqContig foo = new SeqContig(this.model);
-            System.out.println(String.valueOf(i) + ": " + files[i].getName());
+            System.out.println("Species number: " + i);
+            String SpeciesName[] = files[i].getName().split("\\.");
+            System.out.println("Species name: " + SpeciesName[0]);
             String name = files[i].getName();
 
             String subName = name.substring(0, name.length()-6);

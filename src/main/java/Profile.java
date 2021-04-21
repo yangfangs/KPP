@@ -2,6 +2,8 @@ import kmer_contig.CreateSpeciesTable;
 
 import java.io.IOException;
 
+import static utils.checkPath.*;
+
 public class Profile {
     public static boolean run(String[] args) throws IOException {
         int argIdx = 0;
@@ -11,7 +13,6 @@ public class Profile {
         String speNamePath = null;
         int speNum = 1;
         int k = 1;
-        int f = 0;
         String model ="AA";
 
         while (argIdx < args.length && args[argIdx].startsWith("-")) {
@@ -24,16 +25,18 @@ public class Profile {
                 outProfile = args[argIdx++];
             else if (arg.equals("-d"))
                 model = args[argIdx++];
-            else if (arg.equals("-n"))
+            else if (arg.equals("-a"))
                 speNamePath = args[argIdx++];
             else if (arg.equals("-k"))
                 k = Integer.parseInt(args[argIdx++]);
-            else if (arg.equals("-s"))
+            else if (arg.equals("-n"))
                 speNum = Integer.parseInt(args[argIdx++]);
             else {
                 System.err.println("Unknown option: " + arg);
             }
         }
+        spePath = checkInputFile(spePath);
+        outProfile = checkOutputFile(outProfile);
         CreateSpeciesTable foo = new CreateSpeciesTable(contigPath,
                 spePath,
                 outProfile,

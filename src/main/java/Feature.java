@@ -2,6 +2,9 @@ import kmer_contig.GetFeature;
 
 import java.io.IOException;
 
+import static utils.checkPath.checkInputFile;
+import static utils.checkPath.checkOutputFile;
+
 public class Feature {
     public static boolean run(String[] args) throws IOException, IOException {
         int argIdx = 0;
@@ -30,6 +33,8 @@ public class Feature {
                 System.err.println("Unknown option: " + arg);
             }
         }
+        spePath = checkInputFile(spePath);
+        outPath = checkOutputFile(outPath);
         GetFeature foo = new GetFeature(spePath,
                 profile,
                 outPath,

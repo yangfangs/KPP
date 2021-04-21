@@ -3,6 +3,7 @@ package kmer_contig;
 import io.FileInput;
 import utils.TransAA;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class SeqContig {
@@ -77,7 +78,7 @@ public class SeqContig {
         foo.setKmerSet(kmerSet);
 
 //        Set<String> kmers = foo.getKmerSet();
-        System.out.println(kmerSet.size());
+        System.out.println("Founding kerms: " + kmerSet.size());
         long startTime = System.currentTimeMillis();
         foo.allContigs();
         Map<String, String> contigs = foo.getContigs();
@@ -95,12 +96,11 @@ public class SeqContig {
         this.contigs = tem;
 
 
-        System.out.println(tem.size());
+        System.out.println("Searching and compressing to contigs: " + tem.size());
         long endTime = System.currentTimeMillis();
-
-//        foo.printContigs();
-        System.out.println("Time:" + (endTime - startTime) / 1000);
-
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        System.out.println("Used time: " + decimalFormat.format((endTime - startTime) / (float)1000) + "S");
+        System.out.println("============================================");
 
     }
 

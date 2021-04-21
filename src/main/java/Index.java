@@ -2,6 +2,8 @@ import kmer_contig.CreateContigIndex;
 
 import java.io.IOException;
 
+import static utils.checkPath.*;
+
 public class Index {
     public static boolean run(String[] args) throws IOException {
         int argIdx = 0;
@@ -30,6 +32,9 @@ public class Index {
                 System.err.println("Unknown option: " + arg);
             }
         }
+        spePath = checkInputFile(spePath);
+        outPath = checkOutputFileIndex(outPath);
+
         CreateContigIndex foo = new CreateContigIndex(k,
                 spePath,
                 outPath,

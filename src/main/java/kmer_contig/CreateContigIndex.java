@@ -6,6 +6,7 @@ import utils.TransAA;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class CreateContigIndex {
@@ -118,8 +119,10 @@ public class CreateContigIndex {
 
         long endTime = System.currentTimeMillis();
 
-//        foo.printContigs();
-        System.out.println("Time:" + (endTime - startTime) / 1000);
+
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        System.out.println("Used time: " + decimalFormat.format((endTime - startTime) / (float)1000) + "S");
+        System.out.println();
 
 
     }
