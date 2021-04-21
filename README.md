@@ -80,6 +80,7 @@ $ java -Xmx10190m -jar KPP.jar Feature -i ath_psy_hpa_gor_sequence.fasta -k 19 -
 
 ## Download test data
 * Test data: <a href="ftp://74.120.168.50/Test_data.tar.gz">Test_data.tar.gz</a>
+[Test_data.tar.gz](ftp://74.120.168.50/Test_data.tar.gz)
 ## Uncompress test data
 
 ```angular2html
