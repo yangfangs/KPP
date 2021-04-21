@@ -1,4 +1,10 @@
 # **KPP: constructing phylogenetic profile and extracting feature for the prediction of PHI.**
+The KPP (Kmer Phylogenetic Profile) is a new algorithm for constructing phylogenetic profile by compressing sequences to contig and generating evolutionary information features. 
+Using this feature or concatenating other features with the ML framework for the prediction of PHI (pathogen-host interaction).
+
+# The KPP algorithm and ML framework:
+
+![Workflow](https://github.com/yangfangs/KPP/blob/master/algorithm/KPP.png)
 
 # Step1: contig index table.
 
@@ -20,7 +26,7 @@
 ### Usage: 
 
 ```angular2html
-java -Xmx10190m -jar KPP.jar Index -i /home/yangfang/PPFeature/kmer_profile/test_jar/seq/ -k 19 -s 1 -m 4 -o /home/yangfang/PPFeature/kmer_profile/test_hy/k19_ch_index/k19_ch_split.txt -d CH
+$ java -Xmx10190m -jar KPP.jar Index -i protein -k 19 -s 1 -m 4 -o k19_ch_index.txt -d CH
 ```
 
 
@@ -43,7 +49,7 @@ java -Xmx10190m -jar KPP.jar Index -i /home/yangfang/PPFeature/kmer_profile/test
 ### Usage:
 
 ```angular2html
-java -Xmx10190m -jar KPP.jar Profile -i /home/yangfang/PPFeature/kmer_profile/abb_seqs500/ -k 19 -c /home/yangfang/PPFeature/kmer_profile/test_hy/k19_ch_index/ -o /home/yangfang/PPFeature/kmer_profile/test_hy/k19_ch_profile/ -d CH
+$ java -Xmx10190m -jar KPP.jar Profile -i abb_species_503 -c Index -o Profile -k 19 -n 503 -d CH
 
 ```
 # Step3: extracting phylogenetic profile feature.
@@ -65,6 +71,44 @@ java -Xmx10190m -jar KPP.jar Profile -i /home/yangfang/PPFeature/kmer_profile/ab
 ### Usage:
 
 ```angular2html
-java -Xmx10190m -jar KPP.jar Feature -i /home/yangfang/PPFeature/kmer_profile/test_jar/seq_all.fasta -k 19 -p /home/yangfang/PPFeature/kmer_profile/test_hy/k19_ch_profile/k19_ch_split0.txt -o /home/yangfang/PPFeature/kmer_profile/test_hy/k19_ch_feature/combine_contig.txt -d CH
+$ java -Xmx10190m -jar KPP.jar Feature -i ath_psy_hpa_gor_sequence.fasta -k 19 -p Profile_k19_ch_index0.txt -o KPP_feature.txt -d CH
 ```
 
+# Example
+
+* Here we provide an example about using KPP algorithm create contig index, construct phylogenetic profile and extract feature by command line.
+
+## Download test data
+* Test data: [Test_data.tar.gz](ftp://74.120.168.50/opt/Test_data.tar.gz)
+  
+## Uncompress test data
+
+```angular2html
+
+$ tar -zxvf Test_data.tar.gz
+
+```
+* This test data contains:
+
+```
+abb_species_503/  
+                aaf.fasta
+                abi.fasta
+                acan.fasta
+                acf.fasta
+                ...
+protein/
+        ath.fasta
+        Gor.fasta
+        Hpa.fasta
+        Psy.fasta
+ath_psy_hpa_gor_sequence.fasta
+KPP.jar
+Readme.txt
+
+```
+* **abb_species_503**: The folder contains proteome of 503 species for constructing phylogenetic profile. 
+* **protein**: The folder contains the proteome of 4 species for build contig index.
+* **ath_psy_hpa_gor_sequence.fasta**: The protein sequence for extract feature.
+* **KPP.jar**: The jar package for KPP algorithm.
+* **Readme.txt**: command line.
