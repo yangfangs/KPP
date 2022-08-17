@@ -114,3 +114,5 @@ Readme.txt
 * **ath_psy_hpa_gor_sequence.fasta**: The protein sequence for extract feature.
 * **KPP.jar**: The jar package for KPP algorithm.
 * **Readme.txt**: command line.
+
+**Citation:** Fang Y, Yang Y and Liu C (2022) New feature extraction from phylogenetic profiles improved the performance of pathogen-host interactions. Front. Cell. Infect. Microbiol. 12:931072. doi: 10.3389/fcimb.2022.931072
