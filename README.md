@@ -79,9 +79,9 @@ $ java -Xmx10190m -jar KPP.jar Feature -i ath_psy_hpa_gor_sequence.fasta -k 19 -
 * Here we provide an example about using KPP algorithm create contig index, construct phylogenetic profile and extract feature by command line.
 
 ## Download test data
-* Test data: [Test_data.tar.gz](https://bit.ly/3ejeRBJ)
+* Test data: [Test_data.tar.gz](https://bit.ly/3fU9xJA)
 
-> If you can not clink the hyperlink, you can download test data from `ftp://74.120.168.50`
+> If you can not clink the hyperlink, you can download test data from `ftp://23.105.208.65`
 
 ## Uncompress test data
 
